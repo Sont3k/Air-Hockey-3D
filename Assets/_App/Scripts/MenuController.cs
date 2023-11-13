@@ -1,6 +1,4 @@
-using _App.Scripts.Constants;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace _App.Scripts
@@ -24,7 +22,7 @@ namespace _App.Scripts
         
         private void OnStartGameButtonPress()
         {
-            SceneManager.LoadScene(SceneConstants.GameScene);
+            
         }
 
         private void OnExitButtonPress()
