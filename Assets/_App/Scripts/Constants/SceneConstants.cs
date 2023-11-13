@@ -3,6 +3,6 @@
     public class SceneConstants
     {
         public const string MenuScene = "Menu";
-        public const string GameScene = "Menu";
+        public const string GameScene = "Game";
     }
 }
