@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8307816720862755366}
   - component: {fileID: 2286773608037975872}
   - component: {fileID: 2733558030800928794}
-  - component: {fileID: 1562522743718156786}
+  - component: {fileID: 8411507355051431393}
   m_Layer: 0
   m_Name: Base Striker
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1562522743718156786
+--- !u!65 &8411507355051431393
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
