@@ -5,6 +5,8 @@ namespace _App.Scripts
 {
     public class MenuController : MonoBehaviour
     {
+        [SerializeField] private CameraController _cameraController;
+        [SerializeField] private Canvas _menuCanvas;
         [SerializeField] private Button _startGame;
         [SerializeField] private Button _exit;
 
@@ -22,7 +24,8 @@ namespace _App.Scripts
         
         private void OnStartGameButtonPress()
         {
-            
+            _menuCanvas.gameObject.SetActive(false);
+            _cameraController.MoveToBoardPosition();
         }
 
         private void OnExitButtonPress()
