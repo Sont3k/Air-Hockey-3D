@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7774581277900866866}
   m_Layer: 0
   m_Name: Player Striker
-  m_TagString: Untagged
+  m_TagString: Striker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

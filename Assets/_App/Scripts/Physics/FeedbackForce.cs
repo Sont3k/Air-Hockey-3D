@@ -9,8 +9,7 @@ namespace _App.Scripts.Physics
 
         private void OnCollisionEnter(Collision other)
         {
-            var otherRigidbody = other.gameObject.GetComponent<Rigidbody>();
-            if (otherRigidbody == null) return;
+            if (!other.gameObject.CompareTag("Wall") && !other.gameObject.CompareTag("Striker")) return;
             
             var pushDirection = (transform.position - other.contacts[0].point).normalized;
             _rb.AddForce(pushDirection * _pushForce, ForceMode.Impulse);
