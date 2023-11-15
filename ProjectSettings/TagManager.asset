@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Striker
   - Wall
+  - Puck
   layers:
   - Default
   - TransparentFX

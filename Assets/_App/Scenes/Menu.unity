@@ -666,8 +666,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15882331a45337438ff5e642f1fed9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scoreController: {fileID: 932150419}
   _cameraController: {fileID: 1896433520}
   _menuCanvas: {fileID: 1823873916}
+  _gameCanvas: {fileID: 808328809}
   _startGame: {fileID: 6951710914958904213}
   _exit: {fileID: 374966748}
 --- !u!1001 &506374161
@@ -1391,6 +1393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1254846890}
   - component: {fileID: 1254846891}
+  - component: {fileID: 1254846892}
   m_Layer: 0
   m_Name: Player Entrance
   m_TagString: Untagged
@@ -1434,6 +1437,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9231787, y: 0.18059754, z: 0.26897943}
   m_Center: {x: 0.0033997297, y: -0.017787457, z: -0.37750918}
+--- !u!114 &1254846892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254846889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954bcb4da407f2846a385a68b98093ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
 --- !u!1 &1304865882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,6 +1695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1603448041}
   - component: {fileID: 1603448042}
+  - component: {fileID: 1603448043}
   m_Layer: 0
   m_Name: Computer Entrance
   m_TagString: Untagged
@@ -1722,6 +1739,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9231787, y: 0.18059754, z: 0.26897943}
   m_Center: {x: 0.0033997297, y: -0.017787457, z: -0.37750918}
+--- !u!114 &1603448043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603448040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954bcb4da407f2846a385a68b98093ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
 --- !u!1 &1615199479
 GameObject:
   m_ObjectHideFlags: 0

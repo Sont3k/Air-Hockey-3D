@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace _App.Scripts
@@ -10,13 +11,43 @@ namespace _App.Scripts
         private int _playerScore;
         private int _computerScore;
 
-        public void IncreasePlayerScore()
+        private void OnEnable()
+        {
+            ScoreTrigger.OnScoreTriggeredStatic += OnScoreTriggered;
+        }
+
+        private void OnDisable()
+        {
+            ScoreTrigger.OnScoreTriggeredStatic -= OnScoreTriggered;
+        }
+
+        public void Init()
+        {
+            UpdateUI();
+        }
+
+        private void OnScoreTriggered(ScoreTriggerType type)
+        {
+            switch (type)
+            {
+                case ScoreTriggerType.Player:
+                    IncreaseComputerScore();
+                    break;
+                case ScoreTriggerType.Computer:
+                    IncreasePlayerScore();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
+        }
+
+        private void IncreasePlayerScore()
         {
             _playerScore++;
             UpdateUI();
         }
 
-        public void IncreaseComputerScore()
+        private void IncreaseComputerScore()
         {
             _computerScore++;
             UpdateUI();
