@@ -14,7 +14,7 @@ namespace _App.Scripts
     {
         [SerializeField] private ScoreTriggerType _type;
         
-        private float _delay = 2f;
+        private readonly float _delay = 2f;
         public static event Action<ScoreTriggerType> OnScoreTriggeredStatic;
         
         private void OnTriggerEnter(Collider other)

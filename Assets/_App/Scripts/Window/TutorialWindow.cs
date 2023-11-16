@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace _App.Scripts
+namespace _App.Scripts.Window
 {
-    public class TutorialScreen : MonoBehaviour
+    public class TutorialWindow : MonoBehaviour
     {
+        [SerializeField] private GameObject _uiHolder;
         [SerializeField] private Button _closeButton;
 
         private void OnEnable()
@@ -19,13 +20,13 @@ namespace _App.Scripts
         
         public void Open()
         {
-            gameObject.SetActive(true);
+            _uiHolder.SetActive(true);
             Time.timeScale = 0;
         }
         
         private void OnCloseButton()
         {
-            gameObject.SetActive(false);
+            _uiHolder.SetActive(false);
             Time.timeScale = 1;
         }
     }

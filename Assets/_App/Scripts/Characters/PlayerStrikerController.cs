@@ -1,7 +1,9 @@
-﻿using DG.Tweening;
+﻿using System;
+using _App.Scripts.Core;
+using DG.Tweening;
 using UnityEngine;
 
-namespace _App.Scripts
+namespace _App.Scripts.Characters
 {
     public class PlayerStrikerController : MonoBehaviour
     {
@@ -17,7 +19,24 @@ namespace _App.Scripts
         [Header("References")]
         [SerializeField] private Camera _camera;
         [SerializeField] private Rigidbody _rb;
+        
+        private Vector3 _startPosition;
 
+        private void OnEnable()
+        {
+            GameStateMachine.OnGameStateChange += OnGameStateChange;
+        }
+
+        private void Start()
+        {
+            _startPosition = transform.position;
+        }
+
+        private void OnDisable()
+        {
+            GameStateMachine.OnGameStateChange -= OnGameStateChange;
+        }
+        
         private void Update()
         {
             if (!Input.GetMouseButton(1)) return;
@@ -38,6 +57,24 @@ namespace _App.Scripts
 
             var destination = new Vector3(hitInfo.point.x, _rb.position.y, hitInfo.point.z);
             _rb.DOMove(destination, _mouseSyncTime);
+        }
+        
+        private void OnGameStateChange(GameState newState)
+        {
+            switch (newState)
+            {
+                case GameState.Menu:
+                    break;
+                case GameState.StartGame:
+                    transform.position = _startPosition;
+                    break;
+                case GameState.EndGame:
+                    break;
+                case GameState.ToMenuTransition:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+            }
         }
     }
 }

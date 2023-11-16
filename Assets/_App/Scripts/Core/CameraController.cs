@@ -2,7 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace _App.Scripts
+namespace _App.Scripts.Core
 {
     [Serializable]
     public struct CameraTransform
