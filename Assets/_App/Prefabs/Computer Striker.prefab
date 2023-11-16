@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59bf7d3b627d41b4bb29b12797c1cb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 0}
   _puck: {fileID: 0}
-  _paddleSpeed: 5
+  _moveForce: 75
   _reactionTime: 0.5
 --- !u!54 &5497031025860898022
 Rigidbody:

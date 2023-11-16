@@ -17,22 +17,22 @@ namespace _App.Scripts.Characters
 
         private void OnEnable()
         {
-            ScoreTrigger.OnScoreTriggeredStatic += ResetPuck;
+            ScoreTrigger.OnScoreTriggeredStatic += ResetPosition;
             GameStateMachine.OnGameStateChange += OnGameStateChange;
         }
 
         private void OnDisable()
         {
-            ScoreTrigger.OnScoreTriggeredStatic -= ResetPuck;
+            ScoreTrigger.OnScoreTriggeredStatic -= ResetPosition;
             GameStateMachine.OnGameStateChange -= OnGameStateChange;
         }
 
-        private void ResetPuck()
+        private void ResetPosition()
         {
             transform.DOMove(_startPosition, _resetDuration);
         }
         
-        private void ResetPuck(ScoreTriggerType type)
+        private void ResetPosition(ScoreTriggerType type)
         {
             transform.DOMove(_startPosition, _resetDuration);
         }
@@ -44,7 +44,7 @@ namespace _App.Scripts.Characters
                 case GameState.Menu:
                     break;
                 case GameState.StartGame:
-                    ResetPuck();
+                    ResetPosition();
                     break;
                 case GameState.EndGame:
                     break;

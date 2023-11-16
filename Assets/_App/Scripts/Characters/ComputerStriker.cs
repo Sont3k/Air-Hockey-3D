@@ -1,47 +1,48 @@
 ﻿using System;
 using _App.Scripts.Core;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace _App.Scripts.Characters
 {
     public class ComputerStriker : MonoBehaviour
     {
+        [SerializeField] private Rigidbody _rb; 
         [SerializeField] private Transform _puck; 
-        [SerializeField] private float _paddleSpeed = 5f; 
+        [SerializeField] private float _moveForce = 5f; 
         [SerializeField] private float _reactionTime = 0.5f;
 
+        private Vector3 _startPosition;
         private bool _isEnabled;
         
         private void OnEnable()
         {
             GameStateMachine.OnGameStateChange += OnGameStateChange;
+            ScoreTrigger.OnScoreTriggeredStatic += ResetPosition;
+        }
+        
+        private void Start()
+        {
+            _startPosition = transform.position;
         }
 
         private void OnDisable()
         {
             GameStateMachine.OnGameStateChange -= OnGameStateChange;
+            ScoreTrigger.OnScoreTriggeredStatic -= ResetPosition;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (!_isEnabled) return;
-            Move().AttachExternalCancellation(destroyCancellationToken);
-        }
-
-        private async UniTask Move()
-        {
-            await UniTask.Delay(TimeSpan.FromSeconds(_reactionTime));
             MovePaddleTowardsPuck();
         }
 
         private void MovePaddleTowardsPuck()
         {
-            var directionToPuck = _puck.position - transform.position;
-            directionToPuck.y = 0f;
-            directionToPuck.Normalize();
-
-            transform.Translate(directionToPuck * (_paddleSpeed * Time.deltaTime));
+            var directionToTarget = _puck.position - transform.position;
+            directionToTarget.Normalize();
+            _rb.AddForce(directionToTarget * _moveForce);
+            
             MakeDecision();
         }
 
@@ -51,6 +52,16 @@ namespace _App.Scripts.Characters
             // For example, the AI might decide to switch between defense and offense strategies
         }
         
+        private void ResetPosition()
+        {
+            transform.position = _startPosition;
+        }
+        
+        private void ResetPosition(ScoreTriggerType type)
+        {
+            transform.position = _startPosition;
+        }
+        
         private void OnGameStateChange(GameState newState)
         {
             switch (newState)
@@ -58,6 +69,7 @@ namespace _App.Scripts.Characters
                 case GameState.Menu:
                     break;
                 case GameState.StartGame:
+                    ResetPosition();
                     _isEnabled = true;
                     break;
                 case GameState.EndGame:
