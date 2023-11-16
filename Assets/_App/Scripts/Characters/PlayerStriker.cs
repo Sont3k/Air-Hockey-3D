@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _App.Scripts.Characters
 {
-    public class PlayerStrikerController : MonoBehaviour
+    public class PlayerStriker : MonoBehaviour
     {
         [Header("Parameters")]
         [SerializeField] private float _mouseSyncTime;
