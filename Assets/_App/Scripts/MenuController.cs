@@ -5,10 +5,14 @@ namespace _App.Scripts
 {
     public class MenuController : MonoBehaviour
     {
+        [Header("References")]
         [SerializeField] private ScoreController _scoreController;
         [SerializeField] private CameraController _cameraController;
+        
+        [Header("UI")]
         [SerializeField] private Canvas _menuCanvas;
         [SerializeField] private Canvas _gameCanvas;
+        [SerializeField] private TutorialScreen _tutorialScreen;
         [SerializeField] private Button _startGame;
         [SerializeField] private Button _exit;
 
@@ -38,6 +42,7 @@ namespace _App.Scripts
         private void OnBoardMoveCompleted()
         {
             _gameCanvas.gameObject.SetActive(true);
+            _tutorialScreen.Open();
         }
 
         private void OnStartGameButtonPress()
