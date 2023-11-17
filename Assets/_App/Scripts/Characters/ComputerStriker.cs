@@ -9,7 +9,6 @@ namespace Characters
     {
         [Header("Parameters")]
         [SerializeField] private float _moveSpeed;
-
         [SerializeField] private float _defenseDistance; // Distance to trigger defensive behavior
         [SerializeField] private float _switchToOffenseDistance; // Distance to switch from defense to offense
         [SerializeField] private float _resetDuration;
