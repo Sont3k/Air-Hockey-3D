@@ -1,25 +1,31 @@
 ﻿using System;
 using _App.Scripts.Core;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _App.Scripts.Characters
 {
     public class ComputerStriker : MonoBehaviour
     {
-        [SerializeField] private Rigidbody _rb; 
-        [SerializeField] private Transform _puck; 
-        [SerializeField] private float _moveForce = 5f; 
-        [SerializeField] private float _reactionTime = 0.5f;
+        [Header("Parameters")]
+        [SerializeField] private float _moveSpeed;
+
+        [SerializeField] private float _defenseDistance; // Distance to trigger defensive behavior
+        [SerializeField] private float _switchToOffenseDistance; // Distance to switch from defense to offense
+        [SerializeField] private float _resetDuration;
+
+        [Header("References")]
+        [SerializeField] private Transform _puck;
 
         private Vector3 _startPosition;
         private bool _isEnabled;
-        
+
         private void OnEnable()
         {
             GameStateMachine.OnGameStateChange += OnGameStateChange;
             ScoreTrigger.OnScoreTriggeredStatic += ResetPosition;
         }
-        
+
         private void Start()
         {
             _startPosition = transform.position;
@@ -31,7 +37,7 @@ namespace _App.Scripts.Characters
             ScoreTrigger.OnScoreTriggeredStatic -= ResetPosition;
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             if (!_isEnabled) return;
             MovePaddleTowardsPuck();
@@ -41,35 +47,51 @@ namespace _App.Scripts.Characters
         {
             var directionToTarget = _puck.position - transform.position;
             directionToTarget.Normalize();
-            _rb.AddForce(directionToTarget * _moveForce);
-            
-            MakeDecision();
+
+            MakeDecision(directionToTarget);
         }
 
-        private void MakeDecision()
+        private void MakeDecision(Vector3 directionToTarget)
         {
-            // Add decision-making logic here, such as changing tactics based on game state
-            // For example, the AI might decide to switch between defense and offense strategies
+            var distanceToPuck = Vector3.Distance(transform.position, _puck.position);
+
+            if (distanceToPuck > _switchToOffenseDistance)
+            {
+                // Move towards the puck aggressively (offensive behavior)
+                transform.Translate(directionToTarget * (_moveSpeed * Time.deltaTime));
+            }
+            else if (distanceToPuck > _defenseDistance)
+            {
+                // Move towards the puck, but not too aggressively (balanced behavior)
+                transform.Translate(directionToTarget * (_moveSpeed * 0.5f * Time.deltaTime));
+            }
+            else
+            {
+                // Move away from the puck defensively (defensive behavior)
+                transform.Translate(-directionToTarget * (_moveSpeed * Time.deltaTime));
+            }
         }
-        
+
         private void ResetPosition()
         {
-            transform.position = _startPosition;
+            transform.DOMove(_startPosition, _resetDuration);
         }
-        
+
         private void ResetPosition(ScoreTriggerType type)
         {
-            transform.position = _startPosition;
+            transform.DOMove(_startPosition, _resetDuration);
         }
-        
+
         private void OnGameStateChange(GameState newState)
         {
             switch (newState)
             {
                 case GameState.Menu:
                     break;
-                case GameState.StartGame:
+                case GameState.ToGameTransition:
                     ResetPosition();
+                    break;
+                case GameState.StartGame:
                     _isEnabled = true;
                     break;
                 case GameState.EndGame:

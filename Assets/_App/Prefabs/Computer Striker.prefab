@@ -46,10 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59bf7d3b627d41b4bb29b12797c1cb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 0}
-  _puck: {fileID: 0}
+  _moveSpeed: 1
   _moveForce: 75
-  _reactionTime: 0.5
+  _defenseDistance: 0.1
+  _switchToOffenseDistance: 0.3
+  _resetDuration: 1
+  _rb: {fileID: 5497031025860898022}
+  _puck: {fileID: 0}
 --- !u!54 &5497031025860898022
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -75,7 +78,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1001 &6186624785100764231
 PrefabInstance:

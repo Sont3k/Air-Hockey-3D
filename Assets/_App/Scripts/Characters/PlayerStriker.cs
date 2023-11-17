@@ -50,7 +50,7 @@ namespace _App.Scripts.Characters
 
         private void UpdateStrikerPosition(RaycastHit hitInfo)
         {
-            if (hitInfo.point.z > _topLimit.position.z) return;
+            // if (hitInfo.point.z > _topLimit.position.z) return;
             if (hitInfo.point.z < _bottomLimit.position.z) return;
             if (hitInfo.point.x < _leftLimit.position.x) return;
             if (hitInfo.point.x > _rightLimit.position.x) return;
@@ -65,8 +65,10 @@ namespace _App.Scripts.Characters
             {
                 case GameState.Menu:
                     break;
-                case GameState.StartGame:
+                case GameState.ToGameTransition:
                     transform.position = _startPosition;
+                    break;
+                case GameState.StartGame:
                     break;
                 case GameState.EndGame:
                     break;

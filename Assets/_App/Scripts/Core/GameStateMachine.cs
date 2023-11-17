@@ -6,6 +6,7 @@ namespace _App.Scripts.Core
     public enum GameState
     {
         Menu,
+        ToGameTransition,
         StartGame,
         EndGame,
         ToMenuTransition
@@ -13,7 +14,7 @@ namespace _App.Scripts.Core
     
     public class GameStateMachine : MonoBehaviour
     {
-        public GameState CurrentState { get; set; }
+        public GameState CurrentState { get; private set; }
         public static event Action<GameState> OnGameStateChange;
 
         public static GameStateMachine Instance { get; private set; }

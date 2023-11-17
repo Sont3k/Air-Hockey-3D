@@ -43,8 +43,10 @@ namespace _App.Scripts.Characters
             {
                 case GameState.Menu:
                     break;
-                case GameState.StartGame:
+                case GameState.ToGameTransition:
                     ResetPosition();
+                    break;
+                case GameState.StartGame:
                     break;
                 case GameState.EndGame:
                     break;

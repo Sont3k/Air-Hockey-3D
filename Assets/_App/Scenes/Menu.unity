@@ -460,6 +460,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &91226386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 91226387}
+  - component: {fileID: 91226388}
+  m_Layer: 0
+  m_Name: Player Entrance Back Wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &91226387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91226386}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.545, z: -1.713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1304865883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &91226388
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91226386}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.80358714, y: 0.18059754, z: 0.26897943}
+  m_Center: {x: 0.0033997297, y: -0.017787457, z: -0.37750918}
 --- !u!1001 &129530056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1991,6 +2044,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.65512675, y: 0.24326456, z: 0.30878425}
   m_Center: {x: 0.13275048, y: 0.031624854, z: -0.32712114}
+--- !u!1 &1202681215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1202681216}
+  - component: {fileID: 1202681217}
+  m_Layer: 0
+  m_Name: Computer Entrance Back Wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1202681216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202681215}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.545, z: 2.459}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1304865883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1202681217
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202681215}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.80358714, y: 0.18059754, z: 0.26897943}
+  m_Center: {x: 0.0033997297, y: -0.017787457, z: -0.37750918}
 --- !u!1 &1208152104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,6 +2279,8 @@ Transform:
   - {fileID: 1132044531}
   - {fileID: 1134867162}
   - {fileID: 1539743495}
+  - {fileID: 1202681216}
+  - {fileID: 91226387}
   m_Father: {fileID: 1480171418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380223715
@@ -2490,15 +2598,13 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Objective:
 
-        
 
-        The primary objective of air hockey
-        is to score goals by hitting the puck into the opponent''s goal.
+        The primary objective of air hockey is to score
+        goals by hitting the puck into the opponent''s goal.
 
 
         Equipment:
 
-        
 
         Air
         hockey is played on a rectangular table with a smooth surface and a cushion
@@ -2510,19 +2616,17 @@ PrefabInstance:
 
         Scoring:
 
-        
 
-        A
-        point is scored when a player successfully hits the puck into the opponent''s
-        goal.
+        A point
+        is scored when a player successfully hits the puck into the opponent''s goal.
 
-        The player with the most points at the end of a predetermined
-        time or when a specific number of goals is reached is declared the winner.
+        The
+        player with the most points at the end of a predetermined time or when a
+        specific number of goals is reached is declared the winner.
 
 
         Gameplay:
 
-        
 
         Players
         must hit the puck using their mallets, aiming to send it into the opponent''s
@@ -2538,11 +2642,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSize
       value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 7654009886719559214, guid: c53ce2dd3e216554e9faaca5a25d2ab7,
-        type: 3}
-      propertyPath: m_lineSpacing
-      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: 7654009886719559214, guid: c53ce2dd3e216554e9faaca5a25d2ab7,
         type: 3}
@@ -3686,11 +3785,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8304017588196656209, guid: 07a2bfaab9785b44f8754cc973f06fff,
         type: 3}
-      propertyPath: _rb
-      value: 
-      objectReference: {fileID: 942326239539177653}
-    - target: {fileID: 8304017588196656209, guid: 07a2bfaab9785b44f8754cc973f06fff,
-        type: 3}
       propertyPath: _puck
       value: 
       objectReference: {fileID: 4527418252663081657}
@@ -3702,12 +3796,6 @@ PrefabInstance:
 --- !u!4 &942326239539177652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7546829208132391482, guid: 07a2bfaab9785b44f8754cc973f06fff,
-    type: 3}
-  m_PrefabInstance: {fileID: 942326239539177651}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &942326239539177653 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 5497031025860898022, guid: 07a2bfaab9785b44f8754cc973f06fff,
     type: 3}
   m_PrefabInstance: {fileID: 942326239539177651}
   m_PrefabAsset: {fileID: 0}

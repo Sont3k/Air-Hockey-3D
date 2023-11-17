@@ -35,6 +35,7 @@ namespace _App.Scripts.Core
 
         private void OnStartGameButtonPress()
         {
+            GameStateMachine.Instance.SetState(GameState.ToGameTransition);
             _menuCanvas.gameObject.SetActive(false);
             _cameraController.MoveToBoardPosition();
         }
@@ -46,6 +47,8 @@ namespace _App.Scripts.Core
                 case GameState.Menu:
                     _menuCanvas.gameObject.SetActive(true);
                     _gameCanvas.gameObject.SetActive(false);
+                    break;
+                case GameState.ToGameTransition:
                     break;
                 case GameState.StartGame:
                     _gameCanvas.gameObject.SetActive(true);

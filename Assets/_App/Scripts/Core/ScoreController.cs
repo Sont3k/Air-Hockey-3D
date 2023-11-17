@@ -73,16 +73,19 @@ namespace _App.Scripts.Core
             {
                 case GameState.Menu:
                     break;
-                case GameState.StartGame:
+                case GameState.ToGameTransition:
                     _playerScore = 0;
                     _computerScore = 0;
                     UpdateUI();
+                    break;
+                case GameState.StartGame:
                     break;
                 case GameState.EndGame:
                     OnGameFinished?.Invoke(_playerScore, _computerScore);
                     break;
                 case GameState.ToMenuTransition:
                     break;
+                
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
             }
