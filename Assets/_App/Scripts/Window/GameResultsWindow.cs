@@ -1,9 +1,9 @@
-﻿using _App.Scripts.Core;
+﻿using Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _App.Scripts.Window
+namespace Window
 {
     public class GameResultsWindow : MonoBehaviour
     {

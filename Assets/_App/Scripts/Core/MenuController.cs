@@ -1,9 +1,9 @@
 using System;
-using _App.Scripts.Window;
 using UnityEngine;
 using UnityEngine.UI;
+using Window;
 
-namespace _App.Scripts.Core
+namespace Core
 {
     public class MenuController : MonoBehaviour
     {

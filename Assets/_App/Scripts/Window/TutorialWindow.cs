@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace _App.Scripts.Window
+namespace Window
 {
     public class TutorialWindow : MonoBehaviour
     {

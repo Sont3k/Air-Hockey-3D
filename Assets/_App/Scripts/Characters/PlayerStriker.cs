@@ -1,9 +1,9 @@
 ﻿using System;
-using _App.Scripts.Core;
+using Core;
 using DG.Tweening;
 using UnityEngine;
 
-namespace _App.Scripts.Characters
+namespace Characters
 {
     public class PlayerStriker : MonoBehaviour
     {

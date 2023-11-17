@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace _App.Scripts.Core
+namespace Core
 {
     public enum GameState
     {

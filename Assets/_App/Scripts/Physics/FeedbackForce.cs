@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _App.Scripts.Physics
+namespace Physics
 {
     public class FeedbackForce : MonoBehaviour
     {
