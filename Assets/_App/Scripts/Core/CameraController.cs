@@ -24,15 +24,12 @@ namespace _App.Scripts.Core
         [Header("References")]
         [SerializeField] private Camera _camera;
 
-        public static event Action OnStartMoveCompleted;
-        public static event Action OnBoardMoveCompleted;
-
         public void MoveToStartPosition()
         {
             _camera.transform.DOMove(_startTransform.Position, _transitionTime);
             _camera.transform.DORotate(_startTransform.Rotation, _transitionTime).OnComplete(() =>
             {
-                OnStartMoveCompleted?.Invoke();
+                GameStateMachine.Instance.SetState(GameState.Menu);
             });
         }
 
@@ -41,7 +38,7 @@ namespace _App.Scripts.Core
             _camera.transform.DOMove(_boardTransform.Position, _transitionTime);
             _camera.transform.DORotate(_boardTransform.Rotation, _transitionTime).OnComplete(() =>
             {
-                OnBoardMoveCompleted?.Invoke();
+                GameStateMachine.Instance.SetState(GameState.StartGame);
             });
         }
     }

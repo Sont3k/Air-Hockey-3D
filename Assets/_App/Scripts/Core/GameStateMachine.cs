@@ -22,28 +22,6 @@ namespace _App.Scripts.Core
         {
             Instance = this;
         }
-
-        private void OnEnable()
-        {
-            CameraController.OnStartMoveCompleted += OnStartMoveCompleted;
-            CameraController.OnBoardMoveCompleted += OnBoardMoveCompleted;
-        }
-
-        private void OnDisable()
-        {
-            CameraController.OnStartMoveCompleted -= OnStartMoveCompleted;
-            CameraController.OnBoardMoveCompleted -= OnBoardMoveCompleted;
-        }
-
-        private void OnBoardMoveCompleted()
-        {
-            SetState(GameState.StartGame);
-        }
-
-        private void OnStartMoveCompleted()
-        {
-            SetState(GameState.Menu);
-        }
         
         private void Start()
         {
