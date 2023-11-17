@@ -14,19 +14,24 @@ public class ScoreTrigger : MonoBehaviour
     [SerializeField] private ScoreTriggerType _type;
         
     private readonly float _delay = 2f;
+    private bool _inProgress;
+    
     public static event Action<ScoreTriggerType> OnScoreTriggeredStatic;
 
-    private void OnTriggerEnter(Collider other)
+    private async void OnTriggerEnter(Collider other)
     {
+        if (_inProgress) return;
         if (GameStateMachine.Instance.CurrentState != GameState.StartGame) return;
         if (!other.gameObject.CompareTag("Puck")) return;
-            
-        HandleScore().AttachExternalCancellation(destroyCancellationToken);
+
+        await HandleScore();
     }
 
     private async UniTask HandleScore()
     {
+        _inProgress = true;
         await UniTask.Delay(TimeSpan.FromSeconds(_delay));
         OnScoreTriggeredStatic?.Invoke(_type);
+        _inProgress = false;
     }
 }
